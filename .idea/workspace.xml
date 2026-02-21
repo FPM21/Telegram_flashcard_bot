@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66a099a7-a642-4944-b5e2-2c487fd4cc45" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Telegram_bot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requests_logic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telegram_bot_logic.py" afterDir="false" />
+    <list default="true" id="66a099a7-a642-4944-b5e2-2c487fd4cc45" name="Changes" comment="v1.0 - basic requests">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requests_logic.py" beforeDir="false" afterPath="$PROJECT_DIR$/requests_logic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telegram_bot_logic.py" beforeDir="false" afterPath="$PROJECT_DIR$/telegram_bot_logic.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "FPM21"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/FPM21/Telegram_flashcard_bot.git",
+    "accountId": "84077b3b-adc8-4107-9890-6177ad5f3423"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 5
 }]]></component>
@@ -64,6 +70,23 @@
       <option name="presentableId" value="Default" />
       <updated>1771671694914</updated>
     </task>
+    <task id="LOCAL-00001" summary="v1.0 - basic requests">
+      <option name="closed" value="true" />
+      <created>1771673296653</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1771673296653</updated>
+    </task>
+    <task id="LOCAL-00002" summary="v1.0 - basic requests">
+      <option name="closed" value="true" />
+      <created>1771673405587</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1771673405587</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -76,5 +99,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="v1.0 - basic requests" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.0 - basic requests" />
   </component>
 </project>
