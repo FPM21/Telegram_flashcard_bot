@@ -23,6 +23,9 @@ class Telegram_bot():
         await context.bot.send_message(chat_id=update.effective_chat.id, text="Provide a new word!")
 
     async def received_word(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        load_dotenv("APIs.env")
+        if update.effective_user != os.getenv("USER_ID"):
+            return ConversationHandler.END
         try:
             self.word = update.message.text
             self.client = requests_logic.Dictionary(self.word)
