@@ -59,9 +59,11 @@ class Notion_edit:
     def loadwordtonotion(self):
         client = Client(auth=self.API)
         client.pages.create(parent={"database_id": "97acee34534e45d2ba39c9b93f9777ca"},
-                            properties={"Word / Phrase": {"title": [{"text": {"content": self.word}}]},
+                            properties={"Word / Phrase": {"title": [{"text": {"content": self.word.capitalize()}}]},
                                         "Definition": {"rich_text": [{"text": {"content": self.definition}}]},
                                         "Example Sentence": {"rich_text": [{"text": {"content": self.sentence}}]},
                                         "Source": {"select": {"name": "Telegram Bot"}}, })
 
-        return f"Word: {self.word}, definition: {self.definition}, example: {self.sentence}"
+        return f"""Word: {self.word.capitalize()}
+definition: {self.definition}, 
+example: {self.sentence}"""

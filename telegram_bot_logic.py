@@ -21,10 +21,12 @@ class Telegram_bot():
 
     async def reset(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         await context.bot.send_message(chat_id=update.effective_chat.id, text="Provide a new word!")
+        return ConversationHandler.END
 
     async def received_word(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         load_dotenv("APIs.env")
-        if update.effective_user != os.getenv("USER_ID"):
+        if str(update.effective_user.id) != os.getenv("USER_ID"):
+            await context.bot.send_message(chat_id=update.effective_chat.id, text=str(update.effective_user.id))
             return ConversationHandler.END
         try:
             self.word = update.message.text
