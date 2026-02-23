@@ -13,39 +13,33 @@ class Dictionary:
 
     def getdefinition(self):
         try:
-            resp = requests.get(f"{self.api}{self.word}")
-            if resp.status_code == 200:
-                for idx, i in enumerate(resp.json()[0]["meanings"][0]["definitions"]):
-                    print(f"{idx + 1}: {i["definition"]}")
-                self.resp = resp
-                return self.word, self.resp
-            elif resp.status_code == 404:
+            self.resp = requests.get(f"{self.api}{self.word}")
+            if self.resp.status_code == 200:
+                defs_text = "\n".join(
+                    f"{idx + 1}: {meaning['definition']}"
+                    for idx, meaning in enumerate(self.resp.json()[0]["meanings"][0]["definitions"])
+                )
+                self.resp_list = defs_text
+                self.choices = len(self.resp.json()[0]["meanings"][0]["definitions"])
+                return self.resp_list
+            elif self.resp.status_code == 404:
                 print("Word is not in API database")
+                return None
             else:
-                print(f"Status code: {resp.status_code}")
+                print(f"Status code: {self.resp.status_code}")
         except Exception as e:
             print(e)
 
-    def choosedefinition(self):
-        choices = len(self.resp.json()[0]["meanings"][0]["definitions"])
+    def choosedefinition(self, chosen_def):
+        self.chosen_def = int(chosen_def)
 
-        while True:
-            chosen_def = input(f"Choose defintion 1 - {choices} or provide your own - choose {choices + 1}: ")
-            if chosen_def.isdigit():
-                self.chosen_def = int(chosen_def)
-                if 1 <= self.chosen_def <= choices + 1:
-                    break
-            print(f"Choose numerical value between 1 and {choices + 1}")
-        if self.chosen_def == choices + 1:
-            definition_str = input("Provide your definition: ")
-        else:
-            definition_str = self.resp.json()[0]["meanings"][0]["definitions"][self.chosen_def - 1]["definition"]
+        definition_str = self.resp.json()[0]["meanings"][0]["definitions"][self.chosen_def - 1]["definition"]
 
         return definition_str
 
-    def getsentence(self):
-        self.sentence = input("Provide an example of use (or use generic one - leave blank): ")
-        if self.sentence == "":
+    def getsentence(self, sentence):
+        self.sentence = sentence
+        if self.sentence.lower() == "skip":
             try:
                 self.sentence = (self.resp.json()[0]["meanings"][0]["definitions"][self.chosen_def - 1]["example"])
             except:
@@ -69,3 +63,5 @@ class Notion_edit:
                                         "Definition": {"rich_text": [{"text": {"content": self.definition}}]},
                                         "Example Sentence": {"rich_text": [{"text": {"content": self.sentence}}]},
                                         "Source": {"select": {"name": "Telegram Bot"}}, })
+
+        return f"Word: {self.word}, definition: {self.definition}, example: {self.sentence}"
